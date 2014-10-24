@@ -47,17 +47,19 @@ String.prototype.format = function() {
     var settings = {
       timeout: 1200,
       countdown: 60,
-      title : 'You have a Security Breach!',
-      message : 'The police will be contacted in {0} seconds.',
-      question: 'Choose to call the police or cancel.',
-      keep_alive_button_text: 'Yes, Call the police',
+      emergency:'breach',
+      department:'police',
+      title : 'You have a emergency!',
+      message : 'The deaprtment will be contacted in {0} seconds.',
+      question: 'Choose to call the department or cancel.',
+      keep_alive_button_text: 'Yes, Call the department',
       sign_out_button_text: 'No',
       keep_alive_url: '/keep-alive',
       logout_url: null,
       logout_redirect_url: '/',
       restart_on_yes: true,
       dialog_width: 350
-    }    
+    };
 
     $.extend(settings, options);
 
@@ -141,16 +143,18 @@ String.prototype.format = function() {
         this.destroyDialog();
         window.clearInterval(this.countdown);
 
-        $.get(settings.keep_alive_url, function(data) {
+       /* $.get(settings.keep_alive_url, function(data) {
           if (data == "OK") {
             if (settings.restart_on_yes) {
               self.setupDialogTimer();
             }
           }
-          else {
+          else {*/
+        	
             self.signOut(false);
-          }
-        });
+        //  }
+       // }
+        
       },
 
       signOut: function(is_forced) {
@@ -170,7 +174,7 @@ String.prototype.format = function() {
       redirectLogout: function(is_forced){
         var target = settings.logout_redirect_url + '?next=' + encodeURIComponent(window.location.pathname + window.location.search);
         if (!is_forced)
-          target += '&timeout=t';
+          target += '&action=callingpolice&timeout=t';
         window.location = target;
       }
     };
