@@ -2,8 +2,8 @@
     pageEncoding="ISO-8859-1"%>
     
     
-    <%
-	 session = request.getSession(false);
+<%
+	session = request.getSession(false);
 	if(session.getAttribute("user")!=null && !(null==session)){System.out.println("Null NAHI HAI");
 		response.sendRedirect(getServletContext().getContextPath()+"/jsp/index.jsp");
 	}
