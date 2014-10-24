@@ -129,13 +129,15 @@ public class CheckScheduleServlet extends HttpServlet {
 							//deviceStatus="";
 							//result = result+"<tr><td>"+rs.getString("device")+"</td><td>"+rs.getString("zone_id")+"</td><td>"+rs.getString("start_date")+"</td>"+"<td>"+rs.getString("end_date")+"</td>"+"<td>"+rs.getString("start_time")+"</td>"+"<td>"+rs.getString("end_time")+"</td>"+"<td>"+rs.getString("start_day")+"</td>"+"<td>"+rs.getString("end_day")+"</td>"+"<td>"+rs.getString("duration")+"</td><td id='deviceStatus'>"+deviceStatus+"</td></tr>";
 						
-							}
+						}
 						
+					}
 				}
 			}
-			}
 			else
-				deviceStatus="";
+			 {
+			 	deviceStatus="";
+			 }
 			
 			result = result+"<tr><td>"+rs.getString("device")+"</td><td>"+rs.getString("zone_id")+"</td><td>"+rs.getString("start_date")+"</td>"+"<td>"+rs.getString("end_date")+"</td>"+"<td>"+rs.getString("start_time")+"</td>"+"<td>"+rs.getString("end_time")+"</td>"+"<td>"+rs.getString("start_day")+"</td>"+"<td>"+rs.getString("duration")+"</td>"+"<td>"+rs.getString("end_day")+"</td><td id='deviceStatus'>"+deviceStatus+"</td></tr>";
 			
@@ -147,7 +149,9 @@ public class CheckScheduleServlet extends HttpServlet {
 					result=result+"</table><input type='hidden' value='ACTIVE' id='isThermostatOn'/>";
 				
 				else
-					result=result+"</table>";
+				   {
+				   	result=result+"</table>";
+				   }
 				
 				out.println(result);
 					
